@@ -11,6 +11,7 @@ const Category = () => {
       return data;
     },
   });
+  
   return (
     <div className="lg:flex justify-center m-4">
       {data.map((ctg) => (
