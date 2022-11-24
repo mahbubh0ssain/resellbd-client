@@ -42,7 +42,9 @@ const ProductDetails = () => {
           setProductInfo={setProductInfo}
         ></ProductCard>
       ))}
-      <Modal productInfo={productInfo} setProductInfo={setProductInfo} />
+      {productInfo && (
+        <Modal productInfo={productInfo} setProductInfo={setProductInfo} />
+      )}
     </div>
   );
 };
