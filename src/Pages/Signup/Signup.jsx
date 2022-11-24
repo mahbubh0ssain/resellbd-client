@@ -1,23 +1,40 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Signup = () => {
   const { createUser } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleLogin = (data) => {
-    console.log(data);
+  const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then(() => {
-        toast.success("user Created successfully");
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+          role: data.role,
+        };
+
+        fetch("http://localhost:5000/createUser", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userInfo),
+        })
+          .then((res) => res.json())
+          .then((info) => {
+            console.log(info);
+            if (info.data.acknowledged) {
+              navigate("/");
+              toast.success(`Welcome ${data.name} to Resell BD`);
+            }
+          });
       })
       .catch((err) => {
         toast.error(err.message);
@@ -27,8 +44,22 @@ const Signup = () => {
   return (
     <div className="flex justify-center items-center my-5 ">
       <div className="bg-amber-100 p-12 rounded-xl">
-        <h2 className="text-center text-4xl mb-6">Signup</h2>
-        <form onSubmit={handleSubmit(handleLogin)}>
+        <h2 className="text-center text-4xl mb-6">SignUp</h2>
+        <form onSubmit={handleSubmit(handleSignUp)}>
+          <div className="form-control w-full">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="John Doe"
+              {...register("name", { required: "Email is required." })}
+              className="input input-bordered w-full"
+            />
+            {errors.name && (
+              <p className="text-red-600" role="alert">
+                {errors.name?.message}
+              </p>
+            )}
+          </div>
           <div className="form-control w-full">
             <label>Email</label>
             <input
@@ -64,9 +95,9 @@ const Signup = () => {
             <select
               type="text"
               className="input input-bordered w-full"
-              {...register("select")}
+              {...register("role")}
             >
-              <option value="user">User</option>
+              <option value="buyer">Buyer</option>
               <option value="seller">Seller</option>
             </select>
           </div>

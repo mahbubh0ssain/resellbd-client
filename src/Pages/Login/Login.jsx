@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin } = useContext(AuthContext);
 
   const {
     register,
@@ -23,6 +23,30 @@ const Login = () => {
       });
   };
 
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => {
+        if (res.user.email) {
+          const userInfo = {
+            name: res.user.displayName,
+            email: res.user.email,
+            role: "buyer",
+          };
+          fetch("http://localhost:5000/createUser", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(userInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.data.acknowledged) {
+                toast.success(`Welcome ${res.user.displayName} to Resell BD`);
+              }
+            });
+        }
+      })
+      .catch(() => {});
+  };
   return (
     <div className="flex justify-center items-center my-5 ">
       <div className="bg-amber-100 p-12 rounded-xl">
@@ -63,12 +87,15 @@ const Login = () => {
         <p>
           New to Resell BD?{" "}
           <Link className="text-blue-400" to="/signup">
-            Create new account
+            Signup
           </Link>
         </p>
         <div className="divider">OR</div>
 
-        <button className="btn btn-outline w-full mx-auto">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn btn-outline w-full mx-auto"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
             alt=""
