@@ -8,7 +8,7 @@ const Home = () => {
     <div className="max-w-[1440px] mx-auto">
       <Slider />
       <Advertise />
-      <Category/>
+      <Category />
     </div>
   );
 };
