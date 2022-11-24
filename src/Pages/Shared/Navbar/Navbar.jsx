@@ -25,6 +25,9 @@ const Navbar = () => {
         <Link to="/about-us">About us</Link>
       </li>
       <li>
+        <Link to="/blogs">Blogs</Link>
+      </li>
+      <li>
         <Link to="/dashboard">Dashboard</Link>
       </li>
       {user?.email ? (
