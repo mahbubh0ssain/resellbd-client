@@ -14,7 +14,6 @@ const ProductDetails = () => {
       return data;
     },
   });
-  console.log(data);
   if (isLoading) {
     return (
       <CirclesWithBar

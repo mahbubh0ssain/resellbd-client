@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Signup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -16,6 +16,9 @@ const Signup = () => {
   const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then(() => {
+        updateUser(data.name)
+          .then(() => {})
+          .catch(() => {});
         const userInfo = {
           name: data.name,
           email: data.email,
