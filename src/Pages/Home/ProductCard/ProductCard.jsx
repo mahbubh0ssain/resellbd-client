@@ -1,7 +1,6 @@
 import React from "react";
-import Modal from "../../../Utilities/Modal";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setProductInfo }) => {
   const {
     name,
     img,
@@ -44,14 +43,16 @@ const ProductCard = ({ product }) => {
             )}
           </div>
           <div className="card-actions justify-start">
-            <label htmlFor="productModal" className="btn  btn-sm btn-primary">
+            <label
+              onClick={() => setProductInfo(product)}
+              htmlFor="productModal"
+              className="btn  btn-sm btn-primary"
+            >
               Buy now
             </label>
           </div>
         </div>
-        <div>
-          <Modal />
-        </div>
+        <div></div>
       </div>
     </div>
   );
