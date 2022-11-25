@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const OrderTable = ({ orderInfo, i }) => {
-  const { img, productName, productPrice } = orderInfo;
+  const { img, productName, productPrice, _id } = orderInfo;
   return (
     <tr>
       <th>{i + 1}</th>
@@ -16,7 +16,10 @@ const OrderTable = ({ orderInfo, i }) => {
       <td>{productName}</td>
       <td>$ {productPrice}</td>
       <td>
-        <Link to="/payment" className="btn btn-primary btn-xs">
+        <Link
+          to={`/dashboard/payment/${_id}`}
+          className="btn btn-primary btn-xs"
+        >
           Pay Now
         </Link>
       </td>

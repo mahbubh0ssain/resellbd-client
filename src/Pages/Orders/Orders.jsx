@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
 import { CirclesWithBar } from "react-loader-spinner";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
@@ -8,6 +7,7 @@ const Orders = () => {
   const { user } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
+  console.log(data);
   useEffect(() => {
     if (!user?.email) {
       return;
@@ -19,7 +19,7 @@ const Orders = () => {
       });
   }, [user?.email]);
 
-  if (data.length === 0) {
+  if (data?.length === 0) {
     return (
       <CirclesWithBar
         height="100"
@@ -50,10 +50,10 @@ const Orders = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((orderInfo, i) => (
+            {data?.map((orderInfo, i) => (
               <OrderTable
                 i={i}
-                key={orderInfo._id}
+                key={orderInfo?._id}
                 orderInfo={orderInfo}
               ></OrderTable>
             ))}

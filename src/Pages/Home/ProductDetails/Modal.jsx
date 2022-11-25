@@ -41,7 +41,7 @@ const Modal = ({ productInfo, setProductInfo }) => {
       <div className="modal">
         <div className="modal-box relative">
           <label
-            htmlFor="productModal"
+            onClick={() => setProductInfo(null)}
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕

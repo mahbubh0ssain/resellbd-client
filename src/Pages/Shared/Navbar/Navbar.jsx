@@ -19,10 +19,6 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/orders">My Orders</Link>
-      </li>
-
-      <li>
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>
@@ -72,11 +68,10 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{menuItems}</ul>
-      </div>
-
       <div className="navbar-end">
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal p-0">{menuItems}</ul>
+        </div>
         <label
           htmlFor="dashboard-drawer"
           className="btn  btn-md drawer-button lg:hidden"
