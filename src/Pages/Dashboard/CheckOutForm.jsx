@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const CheckOutForm = ({ data }) => {
-  const { productPrice, buyerEmail, buyerName } = data;
+  const { productPrice, buyerEmail, buyerName, _id } = data;
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transectionId, setTransectionId] = useState("");
@@ -63,8 +63,26 @@ const CheckOutForm = ({ data }) => {
       return;
     }
     if (paymentIntent.status === "succeeded") {
-      setTransectionId(paymentIntent.id);
-      toast.success("Payment successful");
+      //store payment info to DB
+      const paymentInfo = {
+        transectionId: paymentIntent.id,
+        productPrice,
+        buyerEmail,
+        _id,
+      };
+
+      fetch("http://localhost:5000/paymentInfo", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(paymentInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            setTransectionId(paymentIntent.id);
+            toast.success("Payment successful");
+          }
+        });
     }
   };
 
