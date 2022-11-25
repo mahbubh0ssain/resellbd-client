@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
+import { CirclesWithBar } from "react-loader-spinner";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import OrderTable from "./OrderTable";
 
@@ -7,7 +8,6 @@ const Orders = () => {
   const { user } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
-
   useEffect(() => {
     if (!user?.email) {
       return;
@@ -18,6 +18,23 @@ const Orders = () => {
         setData(data);
       });
   }, [user?.email]);
+
+  if (data.length === 0) {
+    return (
+      <CirclesWithBar
+        height="100"
+        width="100"
+        color="#4fa94d"
+        wrapperStyle={{}}
+        wrapperclassName=""
+        visible={true}
+        outerCircleColor=""
+        innerCircleColor=""
+        barColor=""
+        ariaLabel="circles-with-bar-loading"
+      />
+    );
+  }
 
   return (
     <div className="max-w-[1440px] mx-auto my-16 p-4">

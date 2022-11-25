@@ -17,6 +17,7 @@ const ProductDetails = () => {
       return data;
     },
   });
+  
   if (isLoading) {
     return (
       <CirclesWithBar
