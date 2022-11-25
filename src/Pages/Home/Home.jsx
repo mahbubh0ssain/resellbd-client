@@ -1,5 +1,4 @@
 import React from "react";
-import Modal from "../../Utilities/Modal";
 import Advertise from "./Advertise/Advertise";
 import Category from "./Category/Category";
 import { Slider } from "./Slider/Slider";
@@ -10,7 +9,6 @@ const Home = () => {
       <Slider />
       <Advertise />
       <Category />
-      <Modal/>
     </div>
   );
 };

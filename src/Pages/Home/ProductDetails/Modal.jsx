@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { AuthContext } from "../Context/AuthProvider/AuthProvider";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const Modal = ({ productInfo, setProductInfo }) => {
   const { user } = useContext(AuthContext);
@@ -17,15 +17,21 @@ const Modal = ({ productInfo, setProductInfo }) => {
       location: form.location.value,
       contact: form.contact.value,
     };
-    console.log(bookingInfo);
-    const res = await axios.post("http://localhost:5000/bookings", {
-      bookingInfo,
-    });
-    if (res.data.acknowledged) {
-      form.reset();
-      toast.success("Successfully booked");
-      setProductInfo(null);
-    }
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(bookingInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data?.acknowledged) {
+          toast.success("Booking confirmed.");
+          setProductInfo(null);
+        } else {
+          toast.error(data.message);
+        }
+      });
   };
   return (
     <div>
