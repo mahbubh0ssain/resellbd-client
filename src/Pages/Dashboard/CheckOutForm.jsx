@@ -89,10 +89,12 @@ const CheckOutForm = ({ data }) => {
   return (
     <div>
       <p className="text-red-600">{cardError}</p>
-      <p className="gree-red-600 my-2">
-        TransectionId is:{" "}
-        <span className="text-green-700">{transectionId}</span>
-      </p>
+      {transectionId && (
+        <p className="gree-red-600 my-2">
+          TransectionId is:{" "}
+          <span className="text-green-700">{transectionId}</span>
+        </p>
+      )}
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{

@@ -3,7 +3,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Blogs from "../Pages/Blogs/Blogs";
+import Addproducts from "../Pages/Dashboard/Addproducts";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import Myproducts from "../Pages/Dashboard/Myproducts";
 import Payment from "../Pages/Dashboard/Payment";
 import Home from "../Pages/Home/Home";
 import ProductDetails from "../Pages/Home/ProductDetails/ProductDetails";
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/dashboard/payment/${params.id}`),
         element: <Payment />,
+      },
+      {
+        path: "/dashboard/my-products",
+        element: <Myproducts />,
+      },
+      {
+        path: "/dashboard/add-product",
+        element: <Addproducts />,
       },
     ],
   },
