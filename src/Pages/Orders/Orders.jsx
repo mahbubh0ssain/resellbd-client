@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import OrderTable from "./OrderTable";
 
 const Orders = () => {
   const { user } = useContext(AuthContext);
@@ -18,12 +19,32 @@ const Orders = () => {
       });
   }, [user?.email]);
 
-  return <div>
-    
-    {data.length}
-  
-  
-  </div>;
+  return (
+    <div className="max-w-[1440px] mx-auto my-16 p-4">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>Serial</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Payment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((orderInfo, i) => (
+              <OrderTable
+                i={i}
+                key={orderInfo._id}
+                orderInfo={orderInfo}
+              ></OrderTable>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default Orders;

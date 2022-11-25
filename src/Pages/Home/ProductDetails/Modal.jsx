@@ -16,6 +16,8 @@ const Modal = ({ productInfo, setProductInfo }) => {
       productPrice: form.productPrice.value,
       location: form.location.value,
       contact: form.contact.value,
+      img: productInfo.img,
+      id: productInfo._id,
     };
     fetch("http://localhost:5000/bookings", {
       method: "POST",

@@ -10,6 +10,7 @@ const ProductCard = ({ info, setProductInfo }) => {
     price,
     sellerName,
     verified,
+    _id,
   } = info;
   return (
     <>
