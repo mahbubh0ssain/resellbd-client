@@ -1,10 +1,12 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const CheckOutForm = ({ data }) => {
-  const { productPrice } = data;
+  const { productPrice, buyerEmail, buyerName } = data;
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [transectionId, setTransectionId] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -12,7 +14,10 @@ const CheckOutForm = ({ data }) => {
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
       body: JSON.stringify({ productPrice }),
     })
       .then((res) => res.json())
@@ -42,11 +47,34 @@ const CheckOutForm = ({ data }) => {
     } else {
       setCardError("");
     }
+
+    const { paymentIntent, confirmPaymentError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card,
+          billing_details: {
+            name: buyerName,
+            email: buyerEmail,
+          },
+        },
+      });
+    if (confirmPaymentError) {
+      setCardError(confirmPaymentError.message);
+      return;
+    }
+    if (paymentIntent.status === "succeeded") {
+      setTransectionId(paymentIntent.id);
+      toast.success("Payment successful");
+    }
   };
 
   return (
     <div>
       <p className="text-red-600">{cardError}</p>
+      <p className="gree-red-600 my-2">
+        TransectionId is:{" "}
+        <span className="text-green-700">{transectionId}</span>
+      </p>
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
@@ -67,7 +95,7 @@ const CheckOutForm = ({ data }) => {
         <button
           className="btn btn-xs mt-2"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe || !clientSecret || transectionId}
         >
           Pay
         </button>
