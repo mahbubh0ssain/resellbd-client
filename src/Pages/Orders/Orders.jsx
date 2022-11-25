@@ -7,7 +7,6 @@ const Orders = () => {
   const { user } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
-  console.log(data);
   useEffect(() => {
     if (!user?.email) {
       return;
