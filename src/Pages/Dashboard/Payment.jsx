@@ -17,7 +17,7 @@ const Payment = () => {
         Please pay ${data.productPrice} fot {data.productName}
       </p>
       <div className="text-center mb-4">
-        <div className="avatar ">
+        <div className="avatar "> 
           <div className="w-20 rounded">
             <img src={data.img} alt="Product" />
           </div>

@@ -16,7 +16,6 @@ const ProductCard = ({ info, setProductInfo }) => {
     location,
     _id,
   } = info;
-  console.log(info);
   return (
     <>
       {

@@ -3,15 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const OrderTable = ({ orderInfo, i }) => {
-  // const { data = [] } = useQuery({
-  //   queryKey: ["paymentInfo"],
-  //   queryFn: async () => {
-  //     const res = await fetch("http://localhost:5000/paymentInfo");
-  //     const data = res.json();
-  //     return data;
-  //   },
-  // });
-  // console.log(data);
 
   const { img, productName, productPrice, _id, paid } = orderInfo;
   return (
@@ -28,11 +19,7 @@ const OrderTable = ({ orderInfo, i }) => {
       <td>$ {productPrice}</td>
       <td>
         {paid ? (
-          <Link
-            to={`/dashboard/payment/${_id}`}
-            className="btn btn-primary btn-xs"
-            disabled={paid}
-          >
+          <Link className="btn btn-primary btn-xs" disabled={paid}>
             Paid
           </Link>
         ) : (

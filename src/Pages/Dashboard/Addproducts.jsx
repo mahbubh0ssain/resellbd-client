@@ -59,6 +59,7 @@ const Addproducts = () => {
             contact: data.contact,
             postedAt: date,
             sellerName: user.displayName,
+            sellerEmail: user.email,
           };
           fetch("http://localhost:5000/add-product", {
             method: "POST",
@@ -80,7 +81,10 @@ const Addproducts = () => {
   return (
     <div className="p-5 max-w-[576px] mx-auto shadow rounded-lg ">
       <p className="text-2xl text-center">Add Product</p>
-      <form onSubmit={handleSubmit(handleAddProduct)}>
+      <form
+        className="grid grid-cols-2 gap-4"
+        onSubmit={handleSubmit(handleAddProduct)}
+      >
         <div className="form-control w-full">
           <label>Name</label>
           <input
