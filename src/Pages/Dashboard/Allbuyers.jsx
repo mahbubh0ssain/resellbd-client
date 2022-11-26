@@ -13,13 +13,13 @@ const Allbuyers = () => {
   }, [loading]);
 
   const handleDelete = (email) => {
-    fetch(`http://localhost:5000/delete-seller?email=${email}`, {
+    fetch(`http://localhost:5000/delete-buyer?email=${email}`, {
       method: "POST",
       headers: { "content-type": "application/json" },
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Seller deleted successful");
+        toast.success("Buyer deleted successful");
         setLoading(!loading);
       });
   };
@@ -37,13 +37,13 @@ const Allbuyers = () => {
             </tr>
           </thead>
           <tbody>
-            {buyers.map((seller) => (
-              <tr key={seller._id}>
-                <td>{seller.name}</td>
-                <td>{seller.email}</td>
+            {buyers.map((buyer) => (
+              <tr key={buyer._id}>
+                <td>{buyer.name}</td>
+                <td>{buyer.email}</td>
                 <td>
                   <button
-                    onClick={() => handleDelete(seller.email)}
+                    onClick={() => handleDelete(buyer.email)}
                     className="btn btn-xs btn-primary"
                   >
                     Delete
