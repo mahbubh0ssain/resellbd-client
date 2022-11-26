@@ -10,6 +10,10 @@ const ProductCard = ({ info, setProductInfo }) => {
     price,
     sellerName,
     verified,
+    yearOfPurchase,
+    description,
+    contact,
+    location,
     _id,
   } = info;
   console.log(info);
@@ -27,6 +31,15 @@ const ProductCard = ({ info, setProductInfo }) => {
               <p>Resell Price: ${price}</p>
               <p>Posted at:{postedAt}</p>
               <p>Years use: {yearsUse}</p>
+              <p>Year of purchase: {yearOfPurchase}</p>
+              <p>Location: {location}</p>
+              <p>Contact: {contact}</p>
+              <p>
+                Description:
+                {description?.length > 50
+                  ? description.slice(0, 27) + "..."
+                  : description}
+              </p>
               <div className="flex">
                 <p>Seller: {sellerName}</p>
                 {verified && (

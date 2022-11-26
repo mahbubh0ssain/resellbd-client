@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Category = () => {
+  
   const { data = [] } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {

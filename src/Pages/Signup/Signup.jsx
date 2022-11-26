@@ -54,7 +54,7 @@ const Signup = () => {
             <input
               type="text"
               placeholder="John Doe"
-              {...register("name", { required: "Email is required." })}
+              {...register("name", { required: "Name is required." })}
               className="input input-bordered w-full"
             />
             {errors.name && (
