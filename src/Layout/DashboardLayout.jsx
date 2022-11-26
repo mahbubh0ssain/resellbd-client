@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider/AuthProvider";
+import useAdmin from "../Hooks/useAdmin";
 import Footer from "../Pages/Shared/Footer/Footer";
 import Navbar from "../Pages/Shared/Navbar/Navbar";
 
 const DashboardLayout = () => {
+  const { user } = useContext(AuthContext);
+  const [admin] = useAdmin(user?.email);
   return (
     <div>
       <Navbar></Navbar>
-
       <div className="max-w-[1440px] mx-auto">
         <div className="drawer drawer-mobile">
           <input
@@ -36,12 +39,16 @@ const DashboardLayout = () => {
               <li>
                 <Link to="/dashboard/add-product">Add Products</Link>
               </li>
-              <li>
-                <Link to="/dashboard/all-sellers">All Sellers</Link>
-              </li>
-              <li>
-                <Link to="/dashboard/all-buyers">All Buyers</Link>
-              </li>
+              {admin && (
+                <>
+                  <li>
+                    <Link to="/dashboard/all-sellers">All Sellers</Link>
+                  </li>
+                  <li>
+                    <Link to="/dashboard/all-buyers">All Buyers</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

@@ -15,6 +15,7 @@ import Login from "../Pages/Login/Login";
 import Notfound from "../Pages/Notfound/Notfound";
 import Orders from "../Pages/Orders/Orders";
 import Signup from "../Pages/Signup/Signup";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -72,11 +73,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/all-sellers",
-        element: <AllSellers />,
+        element: (
+          <AdminRoute>
+            <AllSellers />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/all-buyers",
-        element: <Allbuyers />,
+        element: (
+          <AdminRoute>
+            <Allbuyers />
+          </AdminRoute>
+        ),
       },
     ],
   },
