@@ -8,16 +8,25 @@ const AllSellers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/all-sellers`).then((res) => {
-      setSellers(res.data);
-      setLoading(false);
-    });
+    axios
+      .get(`http://localhost:5000/all-sellers`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+        },
+      })
+      .then((res) => {
+        setSellers(res.data);
+        setLoading(false);
+      });
   }, [loading]);
 
   const verifySeller = (email) => {
     fetch(`http://localhost:5000/verify-seller?email=${email}`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -29,7 +38,10 @@ const AllSellers = () => {
   const handleDelete = (email) => {
     fetch(`http://localhost:5000/delete-seller?email=${email}`, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {

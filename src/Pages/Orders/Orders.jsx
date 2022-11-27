@@ -12,7 +12,11 @@ const Orders = () => {
     if (!user?.email) {
       return;
     }
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -69,7 +73,7 @@ const Orders = () => {
         </>
       ) : (
         <h1 className="text-3xl ml-3 flex justify-center items-center">
-          {user.displayName} has no order
+          {user?.displayName} has no order
         </h1>
       )}
     </div>

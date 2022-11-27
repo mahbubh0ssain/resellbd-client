@@ -8,7 +8,11 @@ const Myproducts = () => {
     return;
   }
   axios
-    .get(`http://localhost:5000/my-products?email=${user?.email}`)
+    .get(`http://localhost:5000/my-products?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
+    })
     .then((res) => {
       console.log(res);
       // if (res.data.token) {

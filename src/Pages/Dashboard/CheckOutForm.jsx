@@ -62,7 +62,7 @@ const CheckOutForm = ({ data }) => {
       setCardError(confirmPaymentError.message);
       return;
     }
-    if (paymentIntent.status === "succeeded") {
+    if (paymentIntent?.status === "succeeded") {
       //store payment info to DB
       const paymentInfo = {
         transectionId: paymentIntent.id,

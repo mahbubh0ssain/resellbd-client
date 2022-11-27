@@ -1,18 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import useToken from "../../Hooks/UseToken/UseToken";
 
 const Signup = () => {
   const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const [token] = useToken(email);
+if (token) {
+  navigate("/");
+}
   const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then(() => {
@@ -32,10 +38,8 @@ const Signup = () => {
         })
           .then((res) => res.json())
           .then((info) => {
-            console.log(info);
             if (info.data.acknowledged) {
-              navigate("/");
-              toast.success(`Welcome ${data.name} to Resell BD`);
+              setEmail(data.email);
             }
           });
       })

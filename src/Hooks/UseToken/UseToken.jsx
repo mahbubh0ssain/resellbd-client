@@ -9,6 +9,6 @@ const useToken = (email) => {
       setToken(res.data.token);
     }
   });
-  return token;
+  return [token];
 };
 export default useToken;

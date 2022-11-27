@@ -16,6 +16,7 @@ import Notfound from "../Pages/Notfound/Notfound";
 import Orders from "../Pages/Orders/Orders";
 import Signup from "../Pages/Signup/Signup";
 import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -51,10 +52,18 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/dashboard/orders",
         element: <Orders></Orders>,
       },
       {

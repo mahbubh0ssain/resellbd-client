@@ -1,14 +1,24 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import useToken from "../../Hooks/UseToken/UseToken";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const { loginUser, googleLogin } = useContext(AuthContext);
   const [email, setEmail] = useState("");
-  useToken(email);
+  console.log(email);
+  const [token] = useToken(email);
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
   const {
     register,
     handleSubmit,
@@ -43,6 +53,7 @@ const Login = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.data.acknowledged) {
+                setEmail(res.user.email);
                 toast.success(`Welcome ${res.user.displayName} to Resell BD`);
               }
             });
