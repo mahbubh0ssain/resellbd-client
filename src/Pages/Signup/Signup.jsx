@@ -6,7 +6,7 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import useToken from "../../Hooks/UseToken/UseToken";
 
 const Signup = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const {
@@ -16,9 +16,9 @@ const Signup = () => {
   } = useForm();
 
   const [token] = useToken(email);
-if (token) {
-  navigate("/");
-}
+  if (token) {
+    navigate("/");
+  }
   const handleSignUp = (data) => {
     createUser(data.email, data.password)
       .then(() => {
@@ -46,6 +46,31 @@ if (token) {
       .catch((err) => {
         toast.error(err.message);
       });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => {
+        if (res.user.email) {
+          const userInfo = {
+            name: res.user.displayName,
+            email: res.user.email,
+            role: "buyer",
+          };
+          fetch("http://localhost:5000/createUser", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(userInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.data.acknowledged) {
+                setEmail(res.user.email);
+              }
+            });
+        }
+      })
+      .catch(() => {});
   };
 
   return (
@@ -121,7 +146,10 @@ if (token) {
         </p>
         <div className="divider">OR</div>
 
-        <button className="btn btn-outline w-full mx-auto">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn btn-outline w-full mx-auto"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
             alt=""
