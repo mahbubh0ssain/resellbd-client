@@ -8,7 +8,6 @@ const stripePromise = loadStripe(process.env.REACT_APP_stripe_pk);
 
 const Payment = () => {
   const data = useLoaderData();
-  
 
   return (
     <div className="max-w-[1440px] mx-auto my-20 p-16  justify-center items-center">
@@ -17,7 +16,7 @@ const Payment = () => {
         Please pay ${data.productPrice} fot {data.productName}
       </p>
       <div className="text-center mb-4">
-        <div className="avatar "> 
+        <div className="avatar ">
           <div className="w-20 rounded">
             <img src={data.img} alt="Product" />
           </div>

@@ -14,7 +14,6 @@ const ProductCard = ({ info, setProductInfo }) => {
     description,
     contact,
     location,
-    _id,
   } = info;
   return (
     <>

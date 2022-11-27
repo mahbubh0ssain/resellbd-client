@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const CheckOutForm = ({ data }) => {
-  const { productPrice, buyerEmail, buyerName, _id } = data;
+  const { productPrice, buyerEmail, buyerName, id } = data;
+  console.log(data);
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transectionId, setTransectionId] = useState("");
@@ -68,7 +69,7 @@ const CheckOutForm = ({ data }) => {
         transectionId: paymentIntent.id,
         productPrice,
         buyerEmail,
-        _id,
+        id,
       };
 
       fetch("http://localhost:5000/paymentInfo", {

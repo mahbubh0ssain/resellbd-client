@@ -1,10 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const OrderTable = ({ orderInfo, i }) => {
-
-  const { img, productName, productPrice, _id, paid } = orderInfo;
+  const { img, productName, productPrice, id, paid } = orderInfo;
   return (
     <tr>
       <th>{i + 1}</th>
@@ -24,7 +22,7 @@ const OrderTable = ({ orderInfo, i }) => {
           </Link>
         ) : (
           <Link
-            to={`/dashboard/payment/${_id}`}
+            to={`/dashboard/payment/${id}`}
             className="btn btn-primary btn-xs"
           >
             Pay

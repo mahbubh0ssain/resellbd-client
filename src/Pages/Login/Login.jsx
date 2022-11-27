@@ -53,7 +53,6 @@ const Login = () => {
             .then((data) => {
               if (data.data.acknowledged) {
                 setEmail(res.user.email);
-                toast.success(`Welcome ${res.user.displayName} to Resell BD`);
               }
             });
         }

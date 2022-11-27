@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
@@ -19,6 +18,7 @@ const Modal = ({ productInfo, setProductInfo }) => {
       img: productInfo.img,
       id: productInfo._id,
     };
+
     fetch("http://localhost:5000/bookings", {
       method: "POST",
       headers: { "content-type": "application/json" },
