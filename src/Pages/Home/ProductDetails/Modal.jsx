@@ -107,7 +107,10 @@ const Modal = ({ productInfo, setProductInfo }) => {
               />
             </div>
 
-            <input type="submit" className=" mt-3 btn  btn-sm w-full" />
+            <input
+              type="submit"
+              className=" mt-3 btn btn-primary  btn-sm w-full"
+            />
           </form>
         </div>
       </div>

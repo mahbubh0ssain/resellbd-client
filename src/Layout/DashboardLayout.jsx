@@ -37,30 +37,30 @@ const DashboardLayout = () => {
             <ul className="menu p-4 w-80 bg-base-100 text-base-content">
               {buyer && (
                 <li>
-                  <Link to="/dashboard/orders">My Orders</Link>
+                  <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/orders">My Orders</Link>
                 </li>
               )}
 
               {seller && (
                 <>
                   <li>
-                    <Link to="/dashboard/my-products">My Products</Link>
+                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/my-products">My Products</Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/add-product">Add Products</Link>
+                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/add-product">Add Products</Link>
                   </li>
                 </>
               )}
               {admin && (
                 <>
                   <li>
-                    <Link to="/dashboard/all-sellers">All Sellers</Link>
+                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/all-sellers">All Sellers</Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/all-buyers">All Buyers</Link>
+                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/all-buyers">All Buyers</Link>
                   </li>
                   <li>
-                    <Link to="/dashboard/reported-items">Reported Items</Link>
+                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/reported-items">Reported Items</Link>
                   </li>
                 </>
               )}

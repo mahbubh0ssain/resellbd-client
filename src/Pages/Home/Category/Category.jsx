@@ -13,15 +13,22 @@ const Category = () => {
   });
 
   return (
-    <div className="lg:flex justify-center m-4 text-center">
-      {data.map((ctg) => (
-        <div key={ctg._id}>
-          <Link to={`/category/${ctg.categoryId}`}>
-            <button className="btn btn-outline m-3 ">{ctg.categoryName}</button>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <>
+      <p className="text-4xl text-center border rounded-md max-w-[200px] mx-auto p-3">
+        Category
+      </p>
+      <div className="lg:flex justify-center m-4 text-center">
+        {data.map((ctg) => (
+          <div key={ctg._id}>
+            <Link to={`/category/${ctg.categoryId}`}>
+              <button className="btn btn-primary btn-lg m-3 ">
+                {ctg.categoryName}
+              </button>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
