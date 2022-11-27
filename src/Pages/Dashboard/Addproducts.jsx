@@ -60,6 +60,7 @@ const Addproducts = () => {
             postedAt: date,
             sellerName: user.displayName,
             sellerEmail: user.email,
+            status: "unsold",
           };
           fetch("http://localhost:5000/add-product", {
             method: "POST",

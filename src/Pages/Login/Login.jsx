@@ -12,7 +12,6 @@ const Login = () => {
 
   const { loginUser, googleLogin } = useContext(AuthContext);
   const [email, setEmail] = useState("");
-  console.log(email);
   const [token] = useToken(email);
 
   if (token) {
@@ -62,7 +61,6 @@ const Login = () => {
       .catch(() => {});
   };
 
-  
   return (
     <div className="flex justify-center items-center my-5 ">
       <div className="bg-amber-100 p-12 rounded-xl">
