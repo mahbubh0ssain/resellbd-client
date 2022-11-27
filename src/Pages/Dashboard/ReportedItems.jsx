@@ -37,7 +37,6 @@ const ReportedItems = () => {
     <>
       {items?.length && (
         <>
-          (
           <div className="my-6 mx-4">
             <h2 className="text-3xl">Reported Items</h2>
             <div className="overflow-x-auto">
@@ -76,7 +75,6 @@ const ReportedItems = () => {
               </table>
             </div>
           </div>
-          )
         </>
       )}
       <>
