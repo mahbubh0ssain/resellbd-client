@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Category = () => {
-  
   const { data = [] } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
@@ -12,9 +11,9 @@ const Category = () => {
       return data;
     },
   });
-  
+
   return (
-    <div className="lg:flex justify-center m-4">
+    <div className="lg:flex justify-center m-4 text-center">
       {data.map((ctg) => (
         <div key={ctg._id}>
           <Link to={`/category/${ctg.categoryId}`}>

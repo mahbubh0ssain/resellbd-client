@@ -22,7 +22,7 @@ const Allbuyers = () => {
 
   const handleDelete = (email) => {
     fetch(`http://localhost:5000/delete-buyer?email=${email}`, {
-      method: "POST",
+      method: "DELETE",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,

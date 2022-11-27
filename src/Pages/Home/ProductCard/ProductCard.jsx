@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const ProductCard = ({ info, setProductInfo }) => {
+  const { user } = useContext(AuthContext);
   const {
     name,
     img,
@@ -59,6 +61,7 @@ const ProductCard = ({ info, setProductInfo }) => {
               </div>
               <div className="card-actions justify-start">
                 <label
+                  disabled={user.email === "babargazam@gmail.com"}
                   htmlFor="productModal"
                   className="btn  btn-sm btn-primary"
                   onClick={() => setProductInfo(info)}

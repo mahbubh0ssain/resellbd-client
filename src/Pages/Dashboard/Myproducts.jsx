@@ -6,6 +6,7 @@ import MyProductsTable from "./MyProductsTable";
 const Myproducts = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     if (!user?.email) {
@@ -22,7 +23,7 @@ const Myproducts = () => {
           setProducts(res.data);
         }
       });
-  }, [user?.email]);
+  }, [user?.email, loader]);
 
   return (
     <div className="p-4">
@@ -45,6 +46,8 @@ const Myproducts = () => {
                 key={product._id}
                 i={i}
                 product={product}
+                setLoader={setLoader}
+                loader={loader}
               ></MyProductsTable>
             ))}
           </tbody>

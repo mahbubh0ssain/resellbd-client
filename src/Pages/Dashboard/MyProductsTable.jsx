@@ -1,7 +1,51 @@
 import React from "react";
+import toast from "react-hot-toast";
 
-const MyProductsTable = ({ i, product }) => {
-  const { name, img, price, status } = product;
+const MyProductsTable = ({ i, product, setLoader, loader }) => {
+  const { name, img, price, status, _id } = product;
+
+  const handleProductDelete = (_id) => {
+    fetch(`http://localhost:5000/delete-product?id=${_id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setLoader(!loader);
+          toast.success("Product successfully deleted ");
+        }
+      });
+  };
+
+  const advertise = () => {
+    const advertiseItem = {
+      name,
+      img,
+      price,
+      status,
+      id: _id,
+    };
+    fetch(`http://localhost:5000/advertise`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+      },
+      body: JSON.stringify(advertiseItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          console.log(data);
+          toast.success("Product successfully advertised ");
+        }
+      });
+  };
+
   return (
     <tr>
       <th>{i + 1}</th>
@@ -20,9 +64,16 @@ const MyProductsTable = ({ i, product }) => {
         </button>
       </td>
       <td>
-        <button className="btn btn-xs btn-warning m-1">delete</button>
+        <button
+          onClick={() => handleProductDelete(_id)}
+          className="btn btn-xs btn-warning m-1"
+        >
+          delete
+        </button>
         {status === "unsold" && (
-          <button className="btn btn-xs btn-primary m-1">Ad.</button>
+          <button onClick={advertise} className="btn btn-xs btn-primary m-1">
+            Ad.
+          </button>
         )}
       </td>
     </tr>
