@@ -160,8 +160,6 @@ const Signup = () => {
       </div>
     </div>
   );
-
-  return <div></div>;
 };
 
 export default Signup;
