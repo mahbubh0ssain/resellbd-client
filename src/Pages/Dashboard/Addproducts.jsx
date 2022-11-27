@@ -61,6 +61,7 @@ const Addproducts = () => {
             sellerName: user.displayName,
             sellerEmail: user.email,
             status: "unsold",
+            verified: false,
           };
           fetch("http://localhost:5000/add-product", {
             method: "POST",

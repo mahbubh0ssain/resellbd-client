@@ -40,7 +40,6 @@ const MyProductsTable = ({ i, product, setLoader, loader }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          console.log(data);
           toast.success("Product successfully advertised ");
         }
       });

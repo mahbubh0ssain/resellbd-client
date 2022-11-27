@@ -19,7 +19,6 @@ const ProductCard = ({ info, setProductInfo }) => {
     contact,
     location,
   } = info;
-
   const handleReport = () => {
     const reportedInfo = {
       id: info._id,
@@ -72,7 +71,7 @@ const ProductCard = ({ info, setProductInfo }) => {
             </p>
             <div className="flex">
               <p>Seller: {sellerName}</p>
-              {verified && (
+              {verified === true && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -91,7 +90,7 @@ const ProductCard = ({ info, setProductInfo }) => {
             </div>
             <div className="card-actions justify-start">
               <label
-                disabled={user.email === "babargazam@gmail.com"}
+                disabled={user.email === "mahbubh0ssain.dev@gmail.com"}
                 htmlFor="productModal"
                 className="btn  btn-sm btn-primary"
                 onClick={() => setProductInfo(info)}
