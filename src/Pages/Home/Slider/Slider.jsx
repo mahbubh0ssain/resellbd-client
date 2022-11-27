@@ -11,7 +11,7 @@ import { Pagination } from "swiper";
 
 export const Slider = () => {
   return (
-    <>
+    <div className="px-6">
       <Swiper
         spaceBetween={30}
         pagination={{
@@ -49,6 +49,6 @@ export const Slider = () => {
           />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
