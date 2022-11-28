@@ -12,7 +12,7 @@ const Advertise = () => {
   });
   return (
     data?.length && (
-      <div className="max-w-[1440px] grid grid-cols-1 lg:grid-cols-6 gap-4 my-6 text-center">
+      <div className="max-w-[1440px] grid grid-cols-1  mx-auto lg:grid-cols-6 gap-4 my-6 text-center px-2">
         {data.map((info) => (
           <div key={info._id}>
             <div className="card w-48  shadow-xl image-full">
