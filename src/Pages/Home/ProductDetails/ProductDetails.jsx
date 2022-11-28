@@ -22,39 +22,46 @@ const ProductDetails = () => {
 
   if (isLoading) {
     return (
-      <CirclesWithBar
-        height="100"
-        width="100"
-        color="#4fa94d"
-        wrapperStyle={{}}
-        wrapperclassName=""
-        visible={true}
-        outerCircleColor=""
-        innerCircleColor=""
-        barColor=""
-        ariaLabel="circles-with-bar-loading"
-      />
+      <div className="flex justify-center items-center">
+        <CirclesWithBar
+          height="100"
+          width="100"
+          color="#4fa94d"
+          wrapperStyle={{}}
+          wrapperclassName=""
+          visible={true}
+          outerCircleColor=""
+          innerCircleColor=""
+          barColor=""
+          ariaLabel="circles-with-bar-loading"
+        />
+      </div>
     );
   }
 
   return (
-    <section>
-      <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto ">
-        {data.map((info, i) => (
-          <ProductCard
-            key={i}
-            info={info}
-            setProductInfo={setProductInfo}
-          ></ProductCard>
-        ))}
-      </div>
-      {productInfo && (
-        <Modal
-          productInfo={productInfo}
-          setProductInfo={setProductInfo}
-        ></Modal>
+    <>
+      {data.length && (
+        <section>
+          <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto ">
+            {data.map((info, i) => (
+              <ProductCard
+                key={i}
+                info={info}
+                setProductInfo={setProductInfo}
+              ></ProductCard>
+            ))}
+          </div>
+          {productInfo && (
+            <Modal
+              productInfo={productInfo}
+              setProductInfo={setProductInfo}
+            ></Modal>
+          )}
+        </section>
       )}
-    </section>
+      {!data.length && <p className="text-3xl text-center"> No items</p>}
+    </>
   );
 };
 

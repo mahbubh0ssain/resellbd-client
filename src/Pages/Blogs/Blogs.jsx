@@ -1,8 +1,10 @@
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { useTitle } from "../../Hooks/useTitle";
 
 const Blogs = () => {
+  useTitle("Blogs");
   return (
     <div className="w-full px-4 py-16">
       <div className="mx-auto w-full max-w-[1440px] rounded-2xl bg-white p-2">
