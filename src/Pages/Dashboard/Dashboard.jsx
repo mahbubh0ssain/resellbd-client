@@ -6,8 +6,9 @@ const Dashboard = () => {
   const { user } = useContext(AuthContext);
   useTitle("Dashboard");
   return (
-    <div className="p-6 text-4xl flex justify-center items-center">
-      Welcome <span className="text-blue-600 mx-4"> {user?.displayName} </span>
+    <div className="p-6 text-4xl lg:flex justify-center items-center">
+      Welcome
+      <span className="text-blue-600 mx-4">{user?.displayName} </span>
       to Dashboard.
     </div>
   );

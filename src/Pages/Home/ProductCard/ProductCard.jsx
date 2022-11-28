@@ -41,8 +41,8 @@ const ProductCard = ({ info, setProductInfo }) => {
 
   return (
     <>
-      <div className="px-3 mx-auto">
-        <div className="card w-96 h-full bg-base-100 shadow-xl">
+      <div className="px-2 mx-auto">
+        <div className="card w-66 h-full bg-base-100 shadow-xl">
           <figure>
             <img className="w-full h-64" src={img} alt="Shoes" />
           </figure>

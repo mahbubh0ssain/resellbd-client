@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+This is a furniture reselling website named [Resell-BD](https://resell-bd.web.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features in this website
 
-## Available Scripts
+- Fully responsive for mobile and large devices
+- Here user can login or signup via email/password and social login(google)
+- In this site a user can play 2 roles . one is buyer (default) and another one is seller.
+- login via social will make the user buyer by default. if one can want a seller he/she must be signup first via email/password and select seller option from the dropdown
+- after being a buyer one can book furniture from category. 
+- after booking th booked item will bw store in a separate route in dashboard as My Orders 
+- This dashboard route is conditional, means different for seller, buyer and admin
+- seller can add product by category, a seller can delete the product and also will be able to advertise an unsold product that he/she added
+ - advertise item/s will be displayed on home page right down the slider. (advertise item/s will be remove after that product has been purchased by someone)
+ - admin can see all seller, buyer and be able to delete any seller or buyer. Moreover can make a seller verified. 
+ - after being verified the seller will get a blue badge, that will be displayed in the product card right after the  seller name
+ - users can report an item to the admin
+ - the reported item can delete by the admin and will be removed from the website (product card, advertise item)
 
-In the project directory, you can run:
+- admin will not be able to order by the email from he/she got the role admin
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Technology used in this website
+- React
+- firebase
+- React router
+- NodeJS
+- JWT (JSOn Web Token)
+- ExpressJS
+- MongoDB
+- Tailwind
+- DaisyUi
+- React hot toast 
+- React Spinner 
