@@ -176,7 +176,7 @@ const Addproducts = () => {
             <label>Year of purchase</label>
             <input
               type="text"
-            placeholder="2020"
+              placeholder="2020"
               {...register("purchase", { required: "Purchase is required." })}
               className="input input-bordered w-full"
             />
@@ -275,7 +275,6 @@ const Addproducts = () => {
             Submit
           </button>
         </div>
-        
       </form>
     </div>
   );
