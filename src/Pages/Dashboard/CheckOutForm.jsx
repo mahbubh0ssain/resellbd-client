@@ -13,7 +13,7 @@ const CheckOutForm = ({ data }) => {
   const elements = useElements();
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://resellbd-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -72,7 +72,7 @@ const CheckOutForm = ({ data }) => {
         id,
       };
 
-      fetch("http://localhost:5000/paymentInfo", {
+      fetch("https://resellbd-server.vercel.app/paymentInfo", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(paymentInfo),

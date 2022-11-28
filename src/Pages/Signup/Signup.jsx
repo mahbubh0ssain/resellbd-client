@@ -31,7 +31,7 @@ const Signup = () => {
           role: data.role,
         };
 
-        fetch("http://localhost:5000/createUser", {
+        fetch("https://resellbd-server.vercel.app/createUser", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userInfo),
@@ -57,7 +57,7 @@ const Signup = () => {
             email: res.user.email,
             role: "buyer",
           };
-          fetch("http://localhost:5000/createUser", {
+          fetch("https://resellbd-server.vercel.app/createUser", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(userInfo),

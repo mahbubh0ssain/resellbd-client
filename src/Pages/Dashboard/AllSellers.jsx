@@ -9,7 +9,7 @@ const AllSellers = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/all-sellers`, {
+      .get(`https://resellbd-server.vercel.app/all-sellers`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
         },
@@ -21,7 +21,7 @@ const AllSellers = () => {
   }, [loading]);
 
   const verifySeller = (email) => {
-    fetch(`http://localhost:5000/verify-seller?email=${email}`, {
+    fetch(`https://resellbd-server.vercel.app/verify-seller?email=${email}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -36,7 +36,7 @@ const AllSellers = () => {
   };
 
   const handleDelete = (email) => {
-    fetch(`http://localhost:5000/delete-seller?email=${email}`, {
+    fetch(`https://resellbd-server.vercel.app/delete-seller?email=${email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

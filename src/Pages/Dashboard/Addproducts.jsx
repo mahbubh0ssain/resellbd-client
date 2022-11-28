@@ -20,7 +20,7 @@ const Addproducts = () => {
   const { data = [] } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/category");
+      const res = await fetch("https://resellbd-server.vercel.app/category");
       const data = res.json();
       return data;
     },
@@ -63,7 +63,7 @@ const Addproducts = () => {
             status: "unsold",
             verified: false,
           };
-          fetch("http://localhost:5000/add-product", {
+          fetch("https://resellbd-server.vercel.app/add-product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

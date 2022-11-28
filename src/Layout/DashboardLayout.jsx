@@ -10,8 +10,8 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
   const [admin] = useAdmin(user?.email);
-  const [seller] = useSeller(user?.email);
-  const [buyer] = useBuyer(user?.email);
+  const [isSeller] = useSeller(user?.email);
+  const [isBuyer] = useBuyer(user?.email);
 
   return (
     <div>
@@ -35,32 +35,62 @@ const DashboardLayout = () => {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-              {buyer && (
+              {isBuyer && (
                 <li>
-                  <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/orders">My Orders</Link>
+                  <Link
+                    className="font-bold hover:bg-violet-600 hover:text-white"
+                    to="/dashboard/orders"
+                  >
+                    My Orders
+                  </Link>
                 </li>
               )}
 
-              {seller && (
+              {isSeller && (
                 <>
                   <li>
-                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/my-products">My Products</Link>
+                    <Link
+                      className="font-bold hover:bg-violet-600 hover:text-white"
+                      to="/dashboard/my-products"
+                    >
+                      My Products
+                    </Link>
                   </li>
                   <li>
-                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/add-product">Add Products</Link>
+                    <Link
+                      className="font-bold hover:bg-violet-600 hover:text-white"
+                      to="/dashboard/add-product"
+                    >
+                      Add Products
+                    </Link>
                   </li>
                 </>
               )}
               {admin && (
                 <>
                   <li>
-                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/all-sellers">All Sellers</Link>
+                    <Link
+                      className="font-bold hover:bg-violet-600 hover:text-white"
+                      to="/dashboard/all-sellers"
+                    >
+                      All Sellers
+                    </Link>
                   </li>
                   <li>
-                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/all-buyers">All Buyers</Link>
+                    <Link
+                      className="font-bold hover:bg-violet-600 hover:text-white"
+                      to="/dashboard/all-buyers"
+                    >
+                      All Buyers
+                    </Link>
                   </li>
                   <li>
-                    <Link className="font-bold hover:bg-violet-600 hover:text-white" to="/dashboard/reported-items">Reported Items</Link>
+                    <Link
+                      className="font-bold hover:bg-violet-600 hover:text-white"
+                      to="/dashboard/reported-items"
+                    >
+                      Reported Items
+                    </Link>
                   </li>
                 </>
               )}

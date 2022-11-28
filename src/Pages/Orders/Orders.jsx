@@ -12,7 +12,7 @@ const Orders = () => {
     if (!user?.email) {
       return;
     }
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+    fetch(`https://resellbd-server.vercel.app/bookings?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
       },

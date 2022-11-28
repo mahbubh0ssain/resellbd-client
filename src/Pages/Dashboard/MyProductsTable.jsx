@@ -5,7 +5,7 @@ const MyProductsTable = ({ i, product, setLoader, loader }) => {
   const { name, img, price, status, _id } = product;
 
   const handleProductDelete = (_id) => {
-    fetch(`http://localhost:5000/delete-product?id=${_id}`, {
+    fetch(`https://resellbd-server.vercel.app/delete-product?id=${_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -29,7 +29,7 @@ const MyProductsTable = ({ i, product, setLoader, loader }) => {
       status,
       id: _id,
     };
-    fetch(`http://localhost:5000/advertise`, {
+    fetch(`https://resellbd-server.vercel.app/advertise`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

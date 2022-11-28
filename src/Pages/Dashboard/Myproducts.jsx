@@ -13,11 +13,14 @@ const Myproducts = () => {
       return;
     }
     axios
-      .get(`http://localhost:5000/my-products?email=${user?.email}`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
-        },
-      })
+      .get(
+        `https://resellbd-server.vercel.app/my-products?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
+          },
+        }
+      )
       .then((res) => {
         if (res.data.length) {
           setProducts(res.data);

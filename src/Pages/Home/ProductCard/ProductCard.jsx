@@ -26,7 +26,7 @@ const ProductCard = ({ info, setProductInfo }) => {
       img,
       email: sellerEmail,
     };
-    fetch("http://localhost:5000/reported-items", {
+    fetch("https://resellbd-server.vercel.app/reported-items", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(reportedInfo),

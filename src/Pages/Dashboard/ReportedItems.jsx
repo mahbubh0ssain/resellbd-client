@@ -6,7 +6,7 @@ const ReportedItems = () => {
   const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reported-items", {
+    fetch("https://resellbd-server.vercel.app/reported-items", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
       },
@@ -18,7 +18,7 @@ const ReportedItems = () => {
   }, [deleted]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete-report?id=${id}`, {
+    fetch(`https://resellbd-server.vercel.app/delete-report?id=${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("ResellBD-Token")}`,
