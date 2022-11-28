@@ -275,6 +275,7 @@ const Addproducts = () => {
             Submit
           </button>
         </div>
+        
       </form>
     </div>
   );

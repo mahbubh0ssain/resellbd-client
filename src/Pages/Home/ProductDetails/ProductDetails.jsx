@@ -37,7 +37,7 @@ const ProductDetails = () => {
 
   return (
     <section>
-      <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto">
+      <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto ">
         {data.map((info, i) => (
           <ProductCard
             key={i}

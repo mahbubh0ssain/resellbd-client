@@ -41,36 +41,41 @@ const ProductCard = ({ info, setProductInfo }) => {
 
   return (
     <>
-      <div>
-        <div className="card w-96 h-full bg-base-100 shadow-xl">
+      <div className="px-3 mx-auto">
+        <div className="card  w-96 h-full bg-base-100 shadow-xl">
           <figure>
-            <img className="h-40" src={img} alt="Shoes" />
+            <img className="w-full h-64" src={img} alt="Shoes" />
           </figure>
           <div className="card-body">
             <div className="flex justify-between items-center ">
               <div>
-                <h2 className="text-3xl">{name}</h2>
+                <h2 className="text-3xl font-bold">{name}</h2>
               </div>
-
               <div onClick={handleReport}>
                 <p className="text-red-500 font-bold cursor-pointer">Report</p>
               </div>
             </div>
-            <p>Original Price: ${originalPrice}</p>
-            <p>Resell Price: ${price}</p>
-            <p>Posted at:{postedAt}</p>
-            <p>Years use: {yearsUse}</p>
-            <p>Year of purchase: {yearOfPurchase}</p>
-            <p>Location: {location}</p>
-            <p>Contact: {contact}</p>
-            <p>
+            <p className="font-bold">
+              Original Price:{" "}
+              <span className="text-md text-primary"> ${originalPrice}</span>
+            </p>
+            <p className="font-bold">
+              Resell Price:
+              <span className="text-lg text-primary"> ${price}</span>
+            </p>
+            <p className="font-bold">Posted at:{postedAt}</p>
+            <p className="font-bold">Years use: {yearsUse}</p>
+            <p className="font-bold">Year of purchase: {yearOfPurchase}</p>
+            <p className="font-bold">Location: {location}</p>
+            <p className="font-bold">Contact: {contact}</p>
+            <p className="font-bold">
               Description:
               {description?.length > 50
                 ? description.slice(0, 27) + "..."
                 : description}
             </p>
             <div className="flex">
-              <p>Seller: {sellerName}</p>
+              <p className="font-bold">Seller: {sellerName}</p>
               {verified === true && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
