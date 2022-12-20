@@ -40,10 +40,10 @@ const ProductDetails = () => {
   }
 
   return (
-    <>
+    <div className="min-h-[66.3vh]">
       {data.length && (
         <section>
-          <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto ">
+          <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto">
             {data.map((info, i) => (
               <ProductCard
                 key={i}
@@ -60,8 +60,12 @@ const ProductDetails = () => {
           )}
         </section>
       )}
-      {!data.length && <p className="text-3xl text-center"> No items</p>}
-    </>
+      {!data.length && (
+        <div className="flex justify-center items-center text-3xl ">
+          No items
+        </div>
+      )}
+    </div>
   );
 };
 

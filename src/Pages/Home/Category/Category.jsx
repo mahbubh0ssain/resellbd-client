@@ -14,19 +14,28 @@ const Category = () => {
 
   return (
     <>
-      <p className="text-4xl text-center border rounded-md max-w-[200px] mx-auto p-3">
+      <p className="text-4xl text-center border rounded-md max-w-[200px] mx-auto p-3 my-6">
         Category
       </p>
-      <div className="lg:flex justify-center m-4 text-center">
-        {data.map((ctg) => (
-          <div key={ctg._id}>
-            <Link to={`/category/${ctg.categoryId}`}>
-              <button className="btn btn-primary btn-lg m-3 ">
-                {ctg.categoryName}
-              </button>
-            </Link>
-          </div>
-        ))}
+      <div className="mx-auto">
+        <div className="grid lg:grid-cols-3 gap-4 px-2">
+          {data.map((ctg) => (
+            <div key={ctg._id}>
+              <Link to={`/category/${ctg.categoryId}`}>
+                <div className="card w-48 h-24 mx-auto image-full">
+                  <figure>
+                    <img className="w-full" src={ctg?.img} alt="" />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title text-center">
+                      {ctg.categoryName}
+                    </h2>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
