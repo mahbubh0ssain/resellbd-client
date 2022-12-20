@@ -4,7 +4,7 @@ const TestimonialCard = ({ card }) => {
   const { name, img, text, place } = card;
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-md">
         <div className="card-body items-center ">
           <p>{text}</p>
         </div>

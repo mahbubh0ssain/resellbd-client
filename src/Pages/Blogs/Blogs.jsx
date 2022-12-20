@@ -6,7 +6,7 @@ import { useTitle } from "../../Hooks/useTitle";
 const Blogs = () => {
   useTitle("Blogs");
   return (
-    <div className="w-full px-4 py-16">
+    <div className="w-full px-4 py-16 min-h-[66.7vh]">
       <div className="mx-auto w-full max-w-[1440px] rounded-2xl bg-white p-2">
         <Disclosure>
           {({ open }) => (
