@@ -41,7 +41,7 @@ const ProductDetails = () => {
 
   return (
     <div className="min-h-[66.3vh]">
-      {data.length && (
+      {data.length ? (
         <section>
           <div className="my-6 grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-[1440px] mx-auto">
             {data.map((info, i) => (
@@ -59,8 +59,7 @@ const ProductDetails = () => {
             ></Modal>
           )}
         </section>
-      )}
-      {!data.length && (
+      ) : (
         <div className="flex justify-center items-center text-3xl ">
           No items
         </div>

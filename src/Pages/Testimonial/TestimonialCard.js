@@ -5,10 +5,7 @@ const TestimonialCard = ({ card }) => {
   return (
     <div>
       <div className="card bg-base-100 shadow-md">
-        <div className="card-body items-center ">
-          <p>{text}</p>
-        </div>
-        <div className="flex pl-10 pb-10 items-center">
+        <div className="flex pl-10 mt-10 items-center">
           <div className="avatar mr-4">
             <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img alt="" src={img} />
@@ -18,6 +15,9 @@ const TestimonialCard = ({ card }) => {
             <p className="text-xl font-bold">{name}</p>
             <p>{place}</p>
           </div>
+        </div>
+        <div className="card-body items-center">
+          <p>{text}</p>
         </div>
       </div>
     </div>

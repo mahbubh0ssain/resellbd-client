@@ -3,8 +3,8 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div className=" flex items-center  justify-center">
-      <div className="p-4 shadow-lg rounded-md max-w-[786px]  my-6 mx-6">
-        <h1 className="text-3xl text-center my-1">Get on touch</h1>
+      <div className="p-4 shadow-lg rounded-md max-w-[1280px]  my-6 mx-6">
+        <h1 className="text-3xl text-center my-1">Get in Touch</h1>
         <section className="mt-4 grid grid-cols-1 lg:grid-cols-2 py-6 mx-auto">
           <div className="mx-auto">
             <img

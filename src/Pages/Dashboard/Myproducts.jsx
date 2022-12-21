@@ -30,39 +30,38 @@ const Myproducts = () => {
 
   return (
     <>
-      <>
-        {products.length && (
-          <div className="p-4">
-            <h2 className="text-3xl">My Products</h2>
-            <div className="overflow-x-auto">
-              <table className="table w-full">
-                <thead>
-                  <tr>
-                    <th>Serial</th>
-                    <th>Image</th>
-                    <th>name</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product, i) => (
-                    <MyProductsTable
-                      key={product._id}
-                      i={i}
-                      product={product}
-                      setLoader={setLoader}
-                      loader={loader}
-                    ></MyProductsTable>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+      {products.length ? (
+        <div className="p-4">
+          <h2 className="text-3xl">My Products</h2>
+          <div className="overflow-x-auto">
+            <table className="table w-full">
+              <thead>
+                <tr>
+                  <th>Serial</th>
+                  <th>Image</th>
+                  <th>name</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.map((product, i) => (
+                  <MyProductsTable
+                    key={product._id}
+                    i={i}
+                    product={product}
+                    setLoader={setLoader}
+                    loader={loader}
+                  ></MyProductsTable>
+                ))}
+              </tbody>
+            </table>
           </div>
-        )}
-      </>
-      <>{!products.length && <p className="text-3xl">No product</p>} </>
+        </div>
+      ) : (
+        <p className="flex items-center justify-center text-3xl">No product</p>
+      )}
     </>
   );
 };

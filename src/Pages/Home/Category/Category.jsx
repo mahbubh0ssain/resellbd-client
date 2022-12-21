@@ -18,9 +18,9 @@ const Category = () => {
         Category
       </p>
       <div className="mx-auto">
-        <div className="grid lg:grid-cols-3 gap-4 px-2">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-4 px-2">
           {data.map((ctg) => (
-            <div key={ctg._id}>
+            <div className="hover:scale-125" key={ctg._id}>
               <Link to={`/category/${ctg.categoryId}`}>
                 <div className="card w-48 h-24 mx-auto image-full">
                   <figure>

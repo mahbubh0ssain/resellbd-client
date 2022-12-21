@@ -91,6 +91,7 @@ const Modal = ({ productInfo, setProductInfo }) => {
             <div className="form-control w-full">
               <label>Location</label>
               <input
+                required
                 type="text"
                 name="location"
                 placeholder="Dhaka"
@@ -100,6 +101,7 @@ const Modal = ({ productInfo, setProductInfo }) => {
             <div className="form-control w-full">
               <label>Contact</label>
               <input
+                required
                 type="text"
                 name="contact"
                 placeholder="01********"
@@ -109,6 +111,7 @@ const Modal = ({ productInfo, setProductInfo }) => {
 
             <input
               type="submit"
+              value="Book Now"
               className=" mt-3 btn btn-primary  btn-sm w-full"
             />
           </form>

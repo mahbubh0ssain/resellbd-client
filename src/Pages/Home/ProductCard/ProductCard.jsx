@@ -42,40 +42,57 @@ const ProductCard = ({ info, setProductInfo }) => {
   return (
     <>
       <div className="px-2 mx-auto">
-        <div className="card w-66 h-full bg-base-100 shadow-xl">
+        <div className="card w-66 h-full  shadow-xl">
           <figure>
-            <img className="w-full h-64" src={img} alt="Shoes" />
+            <img className="w-96 h-64" src={img} alt="" />
           </figure>
           <div className="card-body">
             <div className="flex justify-between items-center ">
               <div>
-                <h2 className="text-3xl font-bold">{name}</h2>
+                <h2 className="text-2xl font-bold">{name}</h2>
               </div>
               <div onClick={handleReport}>
                 <p className="text-red-500 font-bold cursor-pointer">Report</p>
               </div>
             </div>
-            <p className="font-bold">
-              Original Price:{" "}
-              <span className="text-md text-primary"> ${originalPrice}</span>
+            <p className="font-bold ">
+              Original Price:
+              <span className="font-normal line-through text-primary">
+                ${originalPrice}
+              </span>
             </p>
             <p className="font-bold">
               Resell Price:
-              <span className="text-lg text-primary"> ${price}</span>
+              <span className="font-bold text-primary text-lg"> ${price}</span>
             </p>
-            <p className="font-bold">Posted at:{postedAt}</p>
-            <p className="font-bold">Years use: {yearsUse}</p>
-            <p className="font-bold">Year of purchase: {yearOfPurchase}</p>
-            <p className="font-bold">Location: {location}</p>
-            <p className="font-bold">Contact: {contact}</p>
             <p className="font-bold">
-              Description:
-              {description?.length > 50
-                ? description.slice(0, 27) + "..."
-                : description}
+              Posted at: <span className="font-normal">{postedAt}</span>
+            </p>
+            <p className="font-bold">
+              Years use: <span className="font-normal">{yearsUse}</span>
+            </p>
+            <p className="font-bold">
+              Year of purchase:{" "}
+              <span className="font-normal">{yearOfPurchase}</span>
+            </p>
+            <p className="font-bold">
+              Location: <span className="font-normal"> {location}</span>
+            </p>
+            <p className="font-bold">
+              Contact: <span className="font-normal">{contact}</span>
+            </p>
+            <p className="font-bold">
+              Description:{" "}
+              <span className="font-normal">
+                {description?.length > 50
+                  ? description.slice(0, 27) + "..."
+                  : description}
+              </span>
             </p>
             <div className="flex">
-              <p className="font-bold">Seller: {sellerName}</p>
+              <p className="font-bold">
+                Seller: <span className="font-normal">{sellerName}</span>
+              </p>
               {verified === true && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +114,7 @@ const ProductCard = ({ info, setProductInfo }) => {
               <label
                 disabled={user.email === "mahbubh0ssain.dev@gmail.com"}
                 htmlFor="productModal"
-                className="btn  btn-sm btn-primary"
+                className="btn  btn-sm w-full btn-primary"
                 onClick={() => setProductInfo(info)}
               >
                 Buy now
